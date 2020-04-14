@@ -1,0 +1,14 @@
+<% if @post.errors.any? %>
+<div id="error_explanation" class="pt-5">
+  <h2>Tu post no pudo ser enviado debido a que tiene <%= pluralize(@post.errors.count, "errores") %>:</h2>
+  <ul class="pt-3">
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="pt-5">
+  <h2 class="pb-3">Tu post ha sido correctamente creado</h2>
+  <%= link_to "Crear otro post", posts_index_path, class: "btn btn-primary" %>
+</div>
